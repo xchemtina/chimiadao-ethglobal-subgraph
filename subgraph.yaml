@@ -1,0 +1,27 @@
+specVersion: 0.0.4
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: ReactionRegistry
+    network: polygon_amoy
+    source:
+      address: "0xF8367eC2E3aa007BaC786A95dCEE623f0b0373C3"
+      abi: ReactionRegistry
+      startBlock: 13398796
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - Reaction
+        - Reactant
+        - Product
+        - Reagent
+      abis:
+        - name: ReactionRegistry
+          file: ./abis/ReactionRegistry.json
+      eventHandlers:
+        - event: ReactionAdded(string,string,string,(string,string)[],(string,string)[],(string,string)[],string)
+          handler: handleReactionAdded
+      file: ./src/mappings.ts

@@ -1,0 +1,15 @@
+[
+    {
+      "inputs": [
+        { "internalType": "string", "name": "reactionId", "type": "string" },
+        { "internalType": "string", "name": "name", "type": "string" },
+        { "internalType": "string", "name": "description", "type": "string" },
+        { "internalType": "tuple[]", "name": "reactants", "type": "tuple[]" },
+        { "internalType": "tuple[]", "name": "products", "type": "tuple[]" },
+        { "internalType": "tuple[]", "name": "reagents", "type": "tuple[]" },
+        { "internalType": "string", "name": "metadata", "type": "string" }
+      ],
+      "name": "ReactionAdded",
+      "type": "event"
+    }
+  ]

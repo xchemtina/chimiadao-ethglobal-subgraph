@@ -1,0 +1,35 @@
+type Reaction @entity {
+  id: ID!
+  name: String!
+  description: String!
+  reactants: [Reactant!]! @derivedFrom(field: "reaction")
+  products: [Product!]! @derivedFrom(field: "reaction")
+  reagents: [Reagent!]! @derivedFrom(field: "reaction")
+  metadata: Metadata!
+}
+
+type Reactant @entity {
+  id: ID!
+  structure: String!
+  role: String!
+  reaction: Reaction!
+}
+
+type Product @entity {
+  id: ID!
+  structure: String!
+  role: String!
+  reaction: Reaction!
+}
+
+type Reagent @entity {
+  id: ID!
+  structure: String!
+  reaction: Reaction!
+}
+
+type Metadata @entity {
+  id: ID!
+  notes: String!
+  timestamp: BigInt!
+}
